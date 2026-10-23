@@ -3,363 +3,461 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080808">
-<title>Khalifa Auto | Drive Your Dream</title>
-<meta name="description" content="Discover premium luxury cars at Khalifa Auto. Explore our collection and contact us on WhatsApp.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khalifa Auto | Luxury Cars</title>
+<meta name="description" content="Discover quality vehicles at Khalifa Auto. Browse our inventory and contact us on WhatsApp.">
 <style>
-:root {
-  --gold: #d8b15b;
-  --black: #080808;
-  --panel: #141414;
-  --muted: #aaa;
-  --white: #f7f5ef;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--black);
-  color: var(--white);
-  font-family: Arial, sans-serif;
-}
-a { color: inherit; text-decoration: none; }
-button, input, select { font: inherit; }
-button { cursor: pointer; }
-header {
-  position: sticky; top: 0; z-index: 10;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 17px 6%;
-  background: rgba(8,8,8,.96);
-  border-bottom: 1px solid #292319;
-}
-.logo { font-size: 21px; font-weight: 900; letter-spacing: 1px; }
-.logo span { color: var(--gold); }
-nav { display: flex; align-items: center; gap: 22px; font-size: 13px; }
-nav a:hover { color: var(--gold); }
-.gold-btn {
-  display: inline-block; background: var(--gold); color: #080808;
-  border: 0; padding: 12px 18px; font-weight: bold; border-radius: 3px;
-}
-.outline-btn {
-  background: transparent; color: var(--gold);
-  border: 1px solid var(--gold); padding: 11px 16px; border-radius: 3px;
-}
-.hero {
-  min-height: 530px; display: flex; align-items: center;
-  padding: 70px 7%;
-  background: linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.38)),
-  url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85") center/cover;
-}
-.hero-content { max-width: 610px; }
-.eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 12px; }
-h1 { font-size: clamp(42px,7vw,76px); line-height: 1.02; margin: 18px 0; }
-h1 span { color: var(--gold); }
-.hero p { color: #d0d0d0; line-height: 1.8; max-width: 470px; }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
-.section { padding: 65px 6%; }
-.section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
-h2 { font-size: clamp(27px,4vw,38px); margin: 8px 0; }
-.muted { color: var(--muted); line-height: 1.7; }
-.filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
-.filters input, .filters select, .field {
-  background: #171717; color: white; border: 1px solid #393939;
-  border-radius: 3px; padding: 13px; min-width: 0;
-}
-.filters input { flex: 1; min-width: 180px; }
-.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; }
-.car-card { background: var(--panel); border: 1px solid #282828; overflow: hidden; }
-.car-image { width: 100%; height: 220px; object-fit: cover; display: block; background: #222; }
-.car-body { padding: 19px; }
-.car-top { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
-.car-top h3 { margin: 0; font-size: 19px; }
-.tag { color: var(--gold); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
-.price { color: var(--gold); font-size: 20px; font-weight: bold; margin: 17px 0; }
-.specs { display: flex; gap: 12px; flex-wrap: wrap; color: #bbb; font-size: 12px; border-top: 1px solid #303030; padding-top: 14px; }
-.card-actions { display: flex; gap: 9px; margin-top: 18px; }
-.card-actions a, .card-actions button { flex: 1; text-align: center; font-size: 12px; }
-.card-actions .gold-btn { padding: 12px 8px; }
-.card-actions .outline-btn { padding: 11px 8px; }
-.empty { display: none; color: var(--muted); padding: 35px 0; }
-.benefits { background: #111; display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; }
-.benefit { border-left: 2px solid var(--gold); padding: 8px 18px; }
-.benefit h3 { margin: 0 0 10px; }
-.contact { background: linear-gradient(135deg,#18150e,#080808); text-align: center; }
-.contact p { max-width: 580px; margin: 15px auto 25px; }
-footer { padding: 28px 6%; border-top: 1px solid #292929; color: #aaa; font-size: 12px; display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
-.modal {
-  display:none; position:fixed; inset:0; z-index:30; background:rgba(0,0,0,.88);
-  padding:20px; overflow:auto; align-items:center; justify-content:center;
-}
-.modal.show { display:flex; }
-.modal-box { width:min(700px,100%); background:#151515; border:1px solid #514329; padding:24px; position:relative; }
-.modal-box img { width:100%; max-height:350px; object-fit:cover; margin:12px 0; }
-.close { float:right; background:none; color:white; border:0; font-size:28px; }
-.video-links a { display:inline-block; color:var(--gold); margin:10px 12px 0 0; text-decoration:underline; }
-@media(max-width:850px) {
-  .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .hero { min-height:470px; }
-  nav { gap:12px; }
-}
-@media(max-width:580px) {
-  header { padding:15px 4%; }
-  .logo { font-size:17px; }
-  nav { gap:10px; font-size:11px; }
-  nav .nav-hide { display:none; }
-  .hero { padding:65px 6%; min-height:480px; }
-  .section { padding:48px 5%; }
-  .grid { grid-template-columns:1fr; }
-  .car-image { height:235px; }
-  .benefits { grid-template-columns:1fr; }
-  footer { flex-direction:column; }
-}
+:root{--gold:#d4af37;--bg:#080808;--panel:#151515;--muted:#aaa;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+header{position:sticky;top:0;z-index:5;background:#080808ed;border-bottom:1px solid #292929;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-size:22px;font-weight:900;letter-spacing:1px}.brand span{color:var(--gold)}
+nav{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:1px solid var(--gold);background:var(--gold);color:#080808;border-radius:6px;padding:11px 15px;font-weight:bold}
+.btn.secondary{background:transparent;color:var(--gold)}
+.btn.danger{background:#9b2929;border-color:#9b2929;color:white}
+.hero{min-height:370px;padding:70px 6%;display:flex;align-items:center;background:linear-gradient(90deg,#080808 10%,#080808c9 55%,#08080850),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero div{max-width:600px}.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(38px,7vw,68px);line-height:1.02;margin:15px 0}
+p{line-height:1.6}.muted{color:var(--muted)}
+section{padding:35px 5%}.section-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+h2{margin-top:0}.tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+input,select,textarea{width:100%;padding:12px;border-radius:6px;border:1px solid #393939;background:#101010;color:white}
+.tools input{flex:2;min-width:190px}.tools select{flex:1;min-width:140px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid #292929;border-radius:10px;overflow:hidden}
+.car-img{width:100%;height:190px;object-fit:cover;background:#222}
+.card-body{padding:16px}.card h3{margin:0 0 8px}.price{font-size:21px;color:var(--gold);font-weight:bold;margin:12px 0}
+.tags{display:flex;gap:7px;flex-wrap:wrap;color:#ccc;font-size:12px}.tag{background:#292929;padding:5px 8px;border-radius:4px}
+.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.card-actions .btn{flex:1}.status{color:var(--gold);font-size:12px;font-weight:bold}
+footer{text-align:center;padding:30px 15px;border-top:1px solid #292929;color:#aaa}
+.overlay{position:fixed;inset:0;z-index:20;background:#000d;display:none;align-items:center;justify-content:center;padding:15px;overflow:auto}
+.modal{width:min(760px,100%);max-height:94vh;overflow:auto;background:#141414;border:1px solid #444;border-radius:12px;padding:22px}
+.modal-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.close{background:none;color:white;border:1px solid #555;border-radius:5px;padding:8px 12px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field{margin-bottom:12px}.field label{display:block;font-size:13px;color:#ccc;margin-bottom:6px}
+.field.full{grid-column:1/-1}.form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.hidden{display:none!important}.notice{padding:12px;border:1px solid #444;border-radius:6px;margin:12px 0;color:#ddd;white-space:pre-wrap}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:12px 0}
+.gallery img{width:100%;height:120px;object-fit:cover;border-radius:6px}
+a{color:var(--gold)}.video-link{display:block;padding:9px 0}
+.admin-row{border:1px solid #333;padding:12px;border-radius:7px;margin:10px 0}
+@media(max-width:560px){header{padding:12px 4%}.brand{font-size:18px}.hero{padding:50px 5%}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}section{padding:28px 4%}}
 </style>
 </head>
 <body>
-
 <header>
-  <a class="logo" href="#">KHALIFA <span>AUTO.</span></a>
+  <div class="brand">KHALIFA <span>AUTO</span></div>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#inventory">Cars</a>
-    <a class="nav-hide" href="#about">Why Us</a>
-    <a class="gold-btn" href="#contact">Contact</a>
+    <button class="btn secondary" onclick="scrollToInventory()">Browse Cars</button>
+    <button class="btn" onclick="openAdmin()">Admin Login</button>
   </nav>
 </header>
 
-<main>
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="eyebrow">Premium automotive collection</div>
-    <h1>DRIVE YOUR<br><span>DREAM.</span></h1>
-    <p>Discover exceptional vehicles, refined style and a buying experience built around you. Your next car starts here.</p>
-    <div class="hero-actions">
-      <a class="gold-btn" href="#inventory">EXPLORE OUR CARS</a>
-      <a class="outline-btn" href="#contact">CONTACT OUR TEAM</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="inventory">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow">Our collection</div>
-      <h2>Find Your Next Car</h2>
-      <div class="muted">Explore our featured vehicles.</div>
-    </div>
-    <div class="tag">Quality · Style · Confidence</div>
-  </div>
-
-  <div class="filters">
-    <input id="search" placeholder="Search make or model..." aria-label="Search cars">
-    <select id="category" aria-label="Filter by category">
-      <option value="">All categories</option>
-      <option value="SUV">SUV</option>
-      <option value="Sedan">Sedan</option>
-      <option value="Luxury">Luxury</option>
-      <option value="Sport">Sport</option>
-    </select>
-  </div>
-
-  <div class="grid" id="carGrid"></div>
-  <div class="empty" id="empty">No vehicles match your search. Please try another filter.</div>
-  <p class="muted" style="font-size:12px;margin-top:25px">Demo vehicles are shown for design preview. Replace them with Khalifa Auto's actual inventory before publishing to customers.</p>
-</section>
-
-<section class="section benefits" id="about">
-  <div class="benefit">
-    <div class="eyebrow">01 / Quality</div>
-    <h3>Carefully Selected</h3>
-    <div class="muted">Present your available vehicles with clear photos and useful details.</div>
-  </div>
-  <div class="benefit">
-    <div class="eyebrow">02 / Convenience</div>
-    <h3>Easy Enquiries</h3>
-    <div class="muted">Contact the dealership directly about a specific vehicle.</div>
-  </div>
-  <div class="benefit">
-    <div class="eyebrow">03 / Experience</div>
-    <h3>Premium Service</h3>
-    <div class="muted">A clean, mobile-friendly showroom designed for car buyers.</div>
-  </div>
-</section>
-
-<section class="section contact" id="contact">
-  <div class="eyebrow">Your next journey begins here</div>
-  <h2>Let's Find Your Car.</h2>
-  <p class="muted">Have a question about a vehicle, its price or availability? Contact Khalifa Auto to discuss your options.</p>
-  <a class="gold-btn" id="mainWhatsApp" href="#" target="_blank" rel="noopener">CHAT ON WHATSAPP</a>
-</section>
-</main>
-
-<footer>
-  <div class="logo">KHALIFA <span style="color:var(--gold)">AUTO.</span></div>
-  <div>Premium cars. Personal service.</div>
-  <div>© <span id="year"></span> Khalifa Auto</div>
-</footer>
-
-<div class="modal" id="carModal" role="dialog" aria-modal="true" aria-label="Vehicle details">
-  <div class="modal-box">
-    <button class="close" id="closeModal" aria-label="Close">&times;</button>
-    <div id="modalContent"></div>
+<div class="hero">
+  <div>
+    <div class="eyebrow">YOUR NEXT JOURNEY STARTS HERE</div>
+    <h1>DRIVE YOUR DREAM.</h1>
+    <p>Explore quality vehicles and find the right car for your next journey.</p>
+    <button class="btn" onclick="scrollToInventory()">Explore Inventory</button>
   </div>
 </div>
 
+<section id="inventory">
+  <div class="section-head">
+    <div><div class="eyebrow">OUR COLLECTION</div><h2>Available Vehicles</h2></div>
+    <span id="vehicleCount" class="muted">Loading vehicles…</span>
+  </div>
+  <div class="tools">
+    <input id="search" placeholder="Search make, model or year…" oninput="renderCars()">
+    <select id="statusFilter" onchange="renderCars()">
+      <option value="Available">Available cars</option>
+      <option value="all">All listings</option>
+      <option value="Sold">Sold</option>
+      <option value="Reserved">Reserved</option>
+    </select>
+  </div>
+  <div id="cars" class="grid"></div>
+  <p id="emptyMessage" class="muted hidden">No vehicles found. Please check back soon.</p>
+</section>
+
+<footer>
+  <strong>KHALIFA AUTO</strong>
+  <p>Contact us to ask about a vehicle, arrange a viewing or confirm availability.</p>
+  <p>© <span id="yearNow"></span> Khalifa Auto</p>
+</footer>
+
+<div id="detailOverlay" class="overlay" onclick="outsideClose(event,'detailOverlay')">
+  <div class="modal">
+    <div class="modal-top"><h2 id="detailTitle">Vehicle details</h2><button class="close" onclick="closeModal('detailOverlay')">Close</button></div>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<div id="adminOverlay" class="overlay" onclick="outsideClose(event,'adminOverlay')">
+  <div class="modal">
+    <div class="modal-top"><h2>Khalifa Auto Admin</h2><button class="close" onclick="closeModal('adminOverlay')">Close</button></div>
+    <div id="loginPanel">
+      <p class="muted">Sign in with the administrator account already created in Firebase Authentication.</p>
+      <div class="field"><label>Email</label><input id="adminEmail" type="email" autocomplete="username" placeholder="Admin email"></div>
+      <div class="field"><label>Password</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Admin password"></div>
+      <button class="btn" onclick="loginAdmin()">Sign In</button>
+      <div id="loginMessage" class="notice hidden"></div>
+    </div>
+    <div id="dashboard" class="hidden">
+      <p class="muted">Signed in as administrator.</p>
+      <div class="form-actions">
+        <button class="btn" onclick="newVehicle()">+ Add Vehicle</button>
+        <button class="btn secondary" onclick="logoutAdmin()">Sign Out</button>
+      </div>
+      <div id="adminMessage" class="notice hidden"></div>
+      <div id="vehicleFormPanel" class="hidden">
+        <hr>
+        <h3 id="formHeading">Add a vehicle</h3>
+        <form id="vehicleForm" onsubmit="saveVehicle(event)">
+          <input id="vehicleId" type="hidden">
+          <div class="form-grid">
+            <div class="field"><label>Make *</label><input id="make" required placeholder="Toyota"></div>
+            <div class="field"><label>Model *</label><input id="model" required placeholder="Camry"></div>
+            <div class="field"><label>Year *</label><input id="carYear" type="number" min="1950" max="2100" required placeholder="2022"></div>
+            <div class="field"><label>Price (₦) *</label><input id="price" type="number" min="0" required placeholder="15000000"></div>
+            <div class="field"><label>Mileage</label><input id="mileage" placeholder="45,000 km"></div>
+            <div class="field"><label>Transmission</label><select id="transmission"><option>Automatic</option><option>Manual</option><option>CVT</option><option>Other</option></select></div>
+            <div class="field"><label>Fuel</label><select id="fuel"><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option><option>Other</option></select></div>
+            <div class="field"><label>Condition</label><select id="condition"><option>Foreign Used</option><option>Nigerian Used</option><option>Brand New</option></select></div>
+            <div class="field"><label>Status</label><select id="carStatus"><option>Available</option><option>Reserved</option><option>Sold</option></select></div>
+            <div class="field full"><label>Description</label><textarea id="description" rows="3" placeholder="Describe the vehicle…"></textarea></div>
+            <div class="field full"><label>Vehicle photos (select multiple)</label><input id="photoFiles" type="file" accept="image/*" multiple><small class="muted">Photos are uploaded to Firebase Storage. Storage must be enabled and its rules configured first.</small><div id="existingPhotos" class="muted"></div></div>
+            <div class="field full"><label>Extra photo URLs (one per line, optional)</label><textarea id="photoUrls" rows="2" placeholder="https://example.com/car-photo.jpg"></textarea></div>
+            <div class="field full"><label>Video links (one per line, optional)</label><textarea id="videoUrls" rows="3" placeholder="Paste YouTube, TikTok, Instagram, Facebook or other video links"></textarea></div>
+          </div>
+          <div class="form-actions">
+            <button class="btn" id="saveButton" type="submit">Save Vehicle</button>
+            <button class="btn secondary" type="button" onclick="cancelVehicleForm()">Cancel</button>
+          </div>
+        </form>
+      </div>
+      <hr>
+      <h3>Manage Listings</h3>
+      <div id="adminVehicles"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
 <script>
-/* Replace this number with Khalifa Auto's WhatsApp number.
-   Use country code only, with no +, spaces or dashes. */
-const WHATSAPP_NUMBER = "2348000000000";
+const firebaseConfig = {
+  apiKey: "AIzaSyAK8kvDkIv-_XDxdMzxLnCAoeJJkYgxXt8",
+  authDomain: "khalifa-auto.firebaseapp.com",
+  projectId: "khalifa-auto",
+  storageBucket: "khalifa-auto.firebasestorage.app",
+  messagingSenderId: "576784108070",
+  appId: "1:576784108070:web:5b34c4a1d05867583c34e7"
+};
 
-const cars = [
-  {
-    name:"Mercedes-Benz E-Class",
-    year:2022, category:"Luxury", transmission:"Automatic",
-    fuel:"Petrol", price:"Contact for price",
-    image:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1000&q=80",
-    description:"Premium comfort and sophisticated styling.",
-    videos:[]
-  },
-  {
-    name:"Range Rover Sport",
-    year:2021, category:"SUV", transmission:"Automatic",
-    fuel:"Petrol", price:"Contact for price",
-    image:"https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1000&q=80",
-    description:"A refined SUV with a bold road presence.",
-    videos:[]
-  },
-  {
-    name:"Porsche 911",
-    year:2022, category:"Sport", transmission:"Automatic",
-    fuel:"Petrol", price:"Contact for price",
-    image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80",
-    description:"Sport-inspired design and performance.",
-    videos:[]
-  },
-  {
-    name:"BMW 5 Series",
-    year:2021, category:"Sedan", transmission:"Automatic",
-    fuel:"Petrol", price:"Contact for price",
-    image:"https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1000&q=80",
-    description:"A stylish sedan with a driver-focused cabin.",
-    videos:[]
-  },
-  {
-    name:"Mercedes-Benz G-Class",
-    year:2022, category:"SUV", transmission:"Automatic",
-    fuel:"Petrol", price:"Contact for price",
-    image:"https://images.unsplash.com/photo-1520031441872-265f69c8c2b1?auto=format&fit=crop&w=1000&q=80",
-    description:"Iconic styling and a commanding presence.",
-    videos:[]
-  },
-  {
-    name:"Lexus Luxury Sedan",
-    year:2021, category:"Luxury", transmission:"Automatic",
-    fuel:"Petrol", price:"Contact for price",
-    image:"https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1000&q=80",
-    description:"Comfort, elegance and understated design.",
-    videos:[]
+const ADMIN_UID = "EprUlr7gFsdHVGQEZqwHfElH4yF2";
+const WHATSAPP_NUMBER = "2349036691794";
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+let vehicles = [];
+let currentAdmin = null;
+let editingImages = [];
+
+document.getElementById("yearNow").textContent = new Date().getFullYear();
+
+function scrollToInventory(){
+  document.getElementById("inventory").scrollIntoView({behavior:"smooth"});
+}
+function openAdmin(){
+  document.getElementById("adminOverlay").style.display = "flex";
+}
+function closeModal(id){
+  document.getElementById(id).style.display = "none";
+}
+function outsideClose(event,id){
+  if(event.target.id === id) closeModal(id);
+}
+function showMessage(id,message){
+  const el = document.getElementById(id);
+  el.textContent = message;
+  el.classList.remove("hidden");
+}
+function hideMessage(id){
+  document.getElementById(id).classList.add("hidden");
+}
+function safe(value){
+  return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];
+  });
+}
+function formatPrice(value){
+  const number = Number(value || 0);
+  return "₦" + number.toLocaleString("en-NG");
+}
+function firstImage(car){
+  if(car.images && car.images.length) return car.images[0];
+  return "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80";
+}
+function validWebUrl(value){
+  try{
+    const parsed = new URL(value);
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
+  }catch(error){
+    return false;
   }
-];
-
-function whatsappLink(carName) {
-  const message = "Hello Khalifa Auto, I am interested in the " + carName + ". Please share the price and availability.";
-  return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
 }
-
-function safeText(value) {
-  return String(value).replace(/[&<>"']/g, function(char) {
-    const chars = {
-      "&":"&amp;", "<":"&lt;", ">":"&gt;",
-      '"':"&quot;", "'":"&#39;"
-    };
-    return chars[char];
+function renderCars(){
+  const search = document.getElementById("search").value.toLowerCase().trim();
+  const filter = document.getElementById("statusFilter").value;
+  const shown = vehicles.filter(function(car){
+    const text = [car.make,car.model,car.year,car.description].join(" ").toLowerCase();
+    return text.includes(search) && (filter === "all" || (car.status || "Available") === filter);
   });
-}
-
-function renderCars() {
-  const query = document.getElementById("search").value.toLowerCase().trim();
-  const category = document.getElementById("category").value;
-  const grid = document.getElementById("carGrid");
-  grid.innerHTML = "";
-
-  const filtered = cars.filter(function(car) {
-    const matchesText = (car.name + " " + car.year + " " + car.category).toLowerCase().includes(query);
-    const matchesCategory = !category || car.category === category;
-    return matchesText && matchesCategory;
-  });
-
-  document.getElementById("empty").style.display = filtered.length ? "none" : "block";
-
-  filtered.forEach(function(car) {
-    const index = cars.indexOf(car);
+  document.getElementById("vehicleCount").textContent = shown.length + " vehicle(s)";
+  document.getElementById("emptyMessage").classList.toggle("hidden",shown.length !== 0);
+  const container = document.getElementById("cars");
+  container.innerHTML = "";
+  shown.forEach(function(car){
     const card = document.createElement("article");
-    card.className = "car-card";
+    card.className = "card";
     card.innerHTML =
-      '<img class="car-image" loading="lazy" src="' + safeText(car.image) + '" alt="' + safeText(car.name) + '" onerror="this.style.display=\'none\'">' +
-      '<div class="car-body">' +
-        '<div class="car-top"><h3>' + safeText(car.name) + '</h3><span class="tag">' + safeText(car.category) + '</span></div>' +
-        '<div class="price">' + safeText(car.price) + '</div>' +
-        '<div class="specs"><span>' + safeText(car.year) + '</span><span>' + safeText(car.transmission) + '</span><span>' + safeText(car.fuel) + '</span></div>' +
-        '<div class="card-actions">' +
-          '<button class="outline-btn details-btn" data-index="' + index + '">VIEW DETAILS</button>' +
-          '<a class="gold-btn" target="_blank" rel="noopener" href="' + whatsappLink(car.name) + '">ENQUIRE</a>' +
-        '</div>' +
-      '</div>';
-    grid.appendChild(card);
-  });
-
-  grid.querySelectorAll(".details-btn").forEach(function(button) {
-    button.addEventListener("click", function() {
-      showDetails(Number(button.dataset.index));
-    });
+      '<img class="car-img" loading="lazy" src="' + safe(firstImage(car)) + '" alt="' + safe((car.make || "") + " " + (car.model || "")) + '">' +
+      '<div class="card-body"><div class="status">' + safe(car.status || "Available") + '</div>' +
+      '<h3>' + safe(car.year) + ' ' + safe(car.make) + ' ' + safe(car.model) + '</h3>' +
+      '<div class="tags"><span class="tag">' + safe(car.transmission || "Not specified") + '</span><span class="tag">' + safe(car.condition || "Used") + '</span></div>' +
+      '<div class="price">' + formatPrice(car.price) + '</div>' +
+      '<div class="card-actions"><button class="btn secondary details-button">Details</button><button class="btn whatsapp-button">WhatsApp</button></div></div>';
+    card.querySelector(".details-button").onclick = function(){showDetails(car.id);};
+    card.querySelector(".whatsapp-button").onclick = function(){contactWhatsApp(car);};
+    card.querySelector("img").onerror = function(){
+      this.src = "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80";
+    };
+    container.appendChild(card);
   });
 }
-
-function showDetails(index) {
-  const car = cars[index];
-  if (!car) return;
-
-  let videoHtml = "";
-  if (car.videos && car.videos.length) {
-    videoHtml = '<div class="video-links"><h3>Vehicle videos</h3>';
-    car.videos.forEach(function(url) {
-      try {
-        const parsed = new URL(url);
-        if (parsed.protocol === "https:" || parsed.protocol === "http:") {
-          videoHtml += '<a href="' + safeText(parsed.href) + '" target="_blank" rel="noopener">Watch vehicle video ↗</a>';
-        }
-      } catch (error) {}
-    });
-    videoHtml += '</div>';
-  }
-
-  document.getElementById("modalContent").innerHTML =
-    '<div class="eyebrow">' + safeText(car.category) + '</div>' +
-    '<h2>' + safeText(car.name) + '</h2>' +
-    '<img src="' + safeText(car.image) + '" alt="' + safeText(car.name) + '">' +
-    '<div class="price">' + safeText(car.price) + '</div>' +
-    '<p class="muted">' + safeText(car.description) + '</p>' +
-    '<p class="muted">' + safeText(car.year) + ' · ' + safeText(car.transmission) + ' · ' + safeText(car.fuel) + '</p>' +
-    videoHtml +
-    '<a class="gold-btn" target="_blank" rel="noopener" href="' + whatsappLink(car.name) + '">ASK ABOUT THIS CAR ON WHATSAPP</a>';
-
-  document.getElementById("carModal").classList.add("show");
+function contactWhatsApp(car){
+  const message = "Hello Khalifa Auto, I am interested in the " + car.year + " " + car.make + " " + car.model + ". Please confirm availability and details. Price: " + formatPrice(car.price);
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message),"_blank");
 }
-
-document.getElementById("search").addEventListener("input", renderCars);
-document.getElementById("category").addEventListener("change", renderCars);
-document.getElementById("closeModal").addEventListener("click", function() {
-  document.getElementById("carModal").classList.remove("show");
-});
-document.getElementById("carModal").addEventListener("click", function(event) {
-  if (event.target.id === "carModal") {
-    event.currentTarget.classList.remove("show");
+function showDetails(id){
+  const car = vehicles.find(function(item){return item.id === id;});
+  if(!car) return;
+  document.getElementById("detailTitle").textContent = (car.year || "") + " " + (car.make || "") + " " + (car.model || "");
+  let html = '<div class="gallery">';
+  (car.images || []).forEach(function(url){
+    if(validWebUrl(url)) html += '<img src="' + safe(url) + '" alt="Vehicle photo">';
+  });
+  html += '</div><p class="price">' + formatPrice(car.price) + '</p>';
+  html += '<p>' + safe(car.description || "Contact us for more information about this vehicle.") + '</p>';
+  html += '<div class="tags">';
+  [car.status,car.condition,car.transmission,car.fuel,car.mileage ? "Mileage: " + car.mileage : ""].forEach(function(item){
+    if(item) html += '<span class="tag">' + safe(item) + '</span>';
+  });
+  html += '</div>';
+  if(car.videos && car.videos.length){
+    html += '<h3>Vehicle Videos</h3>';
+    car.videos.forEach(function(url,index){
+      if(validWebUrl(url)) html += '<a class="video-link" target="_blank" rel="noopener noreferrer" href="' + safe(url) + '">▶ Watch vehicle video ' + (index + 1) + '</a>';
+    });
+  }
+  html += '<div class="form-actions"><button class="btn" onclick="contactWhatsAppById(\'' + safe(car.id) + '\')">Enquire on WhatsApp</button></div>';
+  document.getElementById("detailContent").innerHTML = html;
+  document.getElementById("detailOverlay").style.display = "flex";
+}
+function contactWhatsAppById(id){
+  const car = vehicles.find(function(item){return item.id === id;});
+  if(car) contactWhatsApp(car);
+}
+async function loadVehicles(){
+  try{
+    const snapshot = await db.collection("vehicles").get();
+    vehicles = snapshot.docs.map(function(doc){
+      return Object.assign({id:doc.id},doc.data());
+    });
+    vehicles.sort(function(a,b){
+      return Number(b.createdAt || 0) - Number(a.createdAt || 0);
+    });
+    renderCars();
+    renderAdminVehicles();
+  }catch(error){
+    document.getElementById("vehicleCount").textContent = "Could not load inventory";
+    document.getElementById("emptyMessage").classList.remove("hidden");
+    document.getElementById("emptyMessage").textContent = "Firebase connection error. Check the Firestore setup and rules.";
+    console.error(error);
+  }
+}
+function loginAdmin(){
+  hideMessage("loginMessage");
+  const email = document.getElementById("adminEmail").value.trim();
+  const password = document.getElementById("adminPassword").value;
+  if(!email || !password){
+    showMessage("loginMessage","Enter your admin email and password.");
+    return;
+  }
+  auth.signInWithEmailAndPassword(email,password).then(function(result){
+    if(result.user.uid !== ADMIN_UID){
+      return auth.signOut().then(function(){
+        throw new Error("This account is not authorized as the Khalifa Auto administrator.");
+      });
+    }
+  }).catch(function(error){
+    showMessage("loginMessage",error.message || "Login failed. Check your email and password.");
+  });
+}
+function logoutAdmin(){
+  auth.signOut();
+}
+auth.onAuthStateChanged(function(user){
+  currentAdmin = user && user.uid === ADMIN_UID ? user : null;
+  document.getElementById("loginPanel").classList.toggle("hidden",!!currentAdmin);
+  document.getElementById("dashboard").classList.toggle("hidden",!currentAdmin);
+  if(currentAdmin){
+    loadVehicles();
+  }else{
+    cancelVehicleForm();
   }
 });
-document.getElementById("mainWhatsApp").href = whatsappLink("your car collection");
-document.getElementById("year").textContent = new Date().getFullYear();
-
-renderCars();
+function newVehicle(){
+  document.getElementById("vehicleForm").reset();
+  document.getElementById("vehicleId").value = "";
+  editingImages = [];
+  document.getElementById("existingPhotos").textContent = "No saved photos yet.";
+  document.getElementById("formHeading").textContent = "Add a vehicle";
+  document.getElementById("vehicleFormPanel").classList.remove("hidden");
+  hideMessage("adminMessage");
+  document.getElementById("vehicleFormPanel").scrollIntoView({behavior:"smooth"});
+}
+function cancelVehicleForm(){
+  document.getElementById("vehicleFormPanel").classList.add("hidden");
+  if(document.getElementById("vehicleForm")) document.getElementById("vehicleForm").reset();
+}
+function editVehicle(id){
+  const car = vehicles.find(function(item){return item.id === id;});
+  if(!car) return;
+  document.getElementById("vehicleId").value = car.id;
+  document.getElementById("make").value = car.make || "";
+  document.getElementById("model").value = car.model || "";
+  document.getElementById("carYear").value = car.year || "";
+  document.getElementById("price").value = car.price || "";
+  document.getElementById("mileage").value = car.mileage || "";
+  document.getElementById("transmission").value = car.transmission || "Automatic";
+  document.getElementById("fuel").value = car.fuel || "Petrol";
+  document.getElementById("condition").value = car.condition || "Foreign Used";
+  document.getElementById("carStatus").value = car.status || "Available";
+  document.getElementById("description").value = car.description || "";
+  document.getElementById("videoUrls").value = (car.videos || []).join("\n");
+  document.getElementById("photoUrls").value = "";
+  document.getElementById("photoFiles").value = "";
+  editingImages = (car.images || []).slice();
+  document.getElementById("existingPhotos").textContent = editingImages.length + " existing photo(s). New uploads will be added.";
+  document.getElementById("formHeading").textContent = "Edit vehicle";
+  document.getElementById("vehicleFormPanel").classList.remove("hidden");
+  document.getElementById("vehicleFormPanel").scrollIntoView({behavior:"smooth"});
+}
+async function uploadSelectedPhotos(id){
+  const files = Array.from(document.getElementById("photoFiles").files || []);
+  const uploaded = [];
+  for(let i=0;i<files.length;i++){
+    const file = files[i];
+    if(!file.type.startsWith("image/")) continue;
+    if(file.size > 8 * 1024 * 1024){
+      throw new Error(file.name + " is over 8 MB. Please choose a smaller photo.");
+    }
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+    const path = "vehicles/" + currentAdmin.uid + "/" + id + "/" + Date.now() + "_" + i + "_" + safeName;
+    const ref = storage.ref().child(path);
+    await ref.put(file);
+    uploaded.push(await ref.getDownloadURL());
+  }
+  return uploaded;
+}
+async function saveVehicle(event){
+  event.preventDefault();
+  if(!currentAdmin || currentAdmin.uid !== ADMIN_UID){
+    showMessage("adminMessage","Admin login required.");
+    return;
+  }
+  const button = document.getElementById("saveButton");
+  button.disabled = true;
+  button.textContent = "Saving…";
+  hideMessage("adminMessage");
+  try{
+    const id = document.getElementById("vehicleId").value || db.collection("vehicles").doc().id;
+    const extraImages = document.getElementById("photoUrls").value.split(/\n/).map(function(s){return s.trim();}).filter(validWebUrl);
+    const videos = document.getElementById("videoUrls").value.split(/\n/).map(function(s){return s.trim();}).filter(validWebUrl);
+    const uploaded = await uploadSelectedPhotos(id);
+    const images = editingImages.concat(uploaded).concat(extraImages);
+    const old = vehicles.find(function(car){return car.id === id;});
+    const data = {
+      make:document.getElementById("make").value.trim(),
+      model:document.getElementById("model").value.trim(),
+      year:Number(document.getElementById("carYear").value),
+      price:Number(document.getElementById("price").value),
+      mileage:document.getElementById("mileage").value.trim(),
+      transmission:document.getElementById("transmission").value,
+      fuel:document.getElementById("fuel").value,
+      condition:document.getElementById("condition").value,
+      status:document.getElementById("carStatus").value,
+      description:document.getElementById("description").value.trim(),
+      images:images,
+      videos:videos,
+      updatedAt:Date.now(),
+      createdAt:old ? (old.createdAt || Date.now()) : Date.now()
+    };
+    await db.collection("vehicles").doc(id).set(data,{merge:true});
+    showMessage("adminMessage","Vehicle saved successfully.");
+    cancelVehicleForm();
+    await loadVehicles();
+  }catch(error){
+    console.error(error);
+    showMessage("adminMessage","Could not save vehicle: " + (error.message || "Unknown error") + "\nIf photo upload failed, Firebase Storage may not be configured yet.");
+  }finally{
+    button.disabled = false;
+    button.textContent = "Save Vehicle";
+  }
+}
+function renderAdminVehicles(){
+  const container = document.getElementById("adminVehicles");
+  if(!container) return;
+  container.innerHTML = "";
+  if(!currentAdmin) return;
+  if(!vehicles.length){
+    container.innerHTML = '<p class="muted">No listings yet. Tap Add Vehicle to create the first listing.</p>';
+    return;
+  }
+  vehicles.forEach(function(car){
+    const row = document.createElement("div");
+    row.className = "admin-row";
+    row.innerHTML = '<strong>' + safe(car.year) + ' ' + safe(car.make) + ' ' + safe(car.model) + '</strong><p class="muted">' + formatPrice(car.price) + ' · ' + safe(car.status || "Available") + '</p><div class="form-actions"><button class="btn secondary edit-btn">Edit</button><button class="btn danger delete-btn">Delete</button></div>';
+    row.querySelector(".edit-btn").onclick = function(){editVehicle(car.id);};
+    row.querySelector(".delete-btn").onclick = function(){deleteVehicle(car.id);};
+    container.appendChild(row);
+  });
+}
+async function deleteVehicle(id){
+  if(!currentAdmin || currentAdmin.uid !== ADMIN_UID) return;
+  const car = vehicles.find(function(item){return item.id === id;});
+  if(!car || !confirm("Delete " + car.make + " " + car.model + "? This cannot be undone.")) return;
+  try{
+    await db.collection("vehicles").doc(id).delete();
+    showMessage("adminMessage","Vehicle deleted.");
+    await loadVehicles();
+  }catch(error){
+    showMessage("adminMessage","Delete failed: " + error.message);
+  }
+}
+loadVehicles();
 </script>
 </body>
 </html>
